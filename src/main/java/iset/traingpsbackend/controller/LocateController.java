@@ -11,11 +11,8 @@ public class LocateController {
 
     @MessageMapping("/locate")
     @SendTo("/topic/locate")
-    public Locate locate(double lat, double lng) throws Exception  {
+    public Locate locate(Locate location) throws Exception {
         Thread.sleep(1000);
-        Locate loc = new Locate();
-        loc.setLat(lat);
-        loc.setLon(lng);
-        return loc;
+        return location;
     }
 }
