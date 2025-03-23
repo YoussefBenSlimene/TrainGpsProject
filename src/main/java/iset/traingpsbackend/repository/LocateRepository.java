@@ -1,4 +1,7 @@
 package iset.traingpsbackend.repository;
 
-public interface LocateRepository {
+import iset.traingpsbackend.model.Locate;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface LocateRepository extends JpaRepository<Locate, Long> {
 }
