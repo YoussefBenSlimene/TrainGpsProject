@@ -1,6 +1,7 @@
 package iset.traingpsbackend.serviceImpl;
 
 import iset.traingpsbackend.model.Locate;
+import iset.traingpsbackend.model.Train;
 import iset.traingpsbackend.repository.LocateRepository;
 import iset.traingpsbackend.service.LocateService;
 import jakarta.transaction.Transactional;
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+
 
 @Service
 @Transactional
@@ -28,7 +31,13 @@ public class LocateServiceImpl implements LocateService {
     }
 
     @Override
-    public Locate addLocation(Locate location) {
+    public Locate addLocation(Locate location, Long idTrain) {
+        if (idTrain != null && (location.getTrain() == null ||
+                location.getTrain().getId() == null)) {
+            Train train = new Train();
+            train.setId(idTrain);
+            location.setTrain(train);
+        }
         return locateRepository.save(location);
     }
 

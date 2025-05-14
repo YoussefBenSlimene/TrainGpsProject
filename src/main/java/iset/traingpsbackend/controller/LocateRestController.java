@@ -26,8 +26,8 @@ public class LocateRestController {
     }
 
     @PostMapping
-    public ResponseEntity<Locate> addLocation(@RequestBody Locate location) {
-        return ResponseEntity.ok(locateService.addLocation(location));
+    public ResponseEntity<Locate> addLocation(@RequestBody Locate location, Long idTrain) {
+        return ResponseEntity.ok(locateService.addLocation(location,idTrain));
     }
 
     @DeleteMapping("/{id}")
