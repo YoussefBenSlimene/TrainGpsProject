@@ -20,7 +20,7 @@ public class Train {
     @JoinColumn(name = "location_id", referencedColumnName = "id")
     private Locate location;
 
-
+    private String status ;
 
     private String departurePlace;
 
@@ -74,5 +74,13 @@ public class Train {
 
     public void setDestinationPlace(String destinationPlace) {
         this.destinationPlace = destinationPlace;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
